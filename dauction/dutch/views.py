@@ -44,3 +44,25 @@ def create_proposal(request, ad_id):
         proposal.save()
         return JsonResponse({'message': 'success'})
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
+
+def get_ad(request, pk):
+    ad = get_object_or_404(Ad, pk=pk)
+    data = {
+        'id': ad.pk,
+        'title': ad.title,
+        'content': ad.content,
+        'minimum_price': ad.minimum_price,
+        'created_at': ad.created_at
+    }
+    return JsonResponse(data, status=200)
+
+def delete_proposal(request, ad_id, pk):
+    if request.method == 'DELETE':
+        proposal = get_object_or_404(Proposal, pk=pk, ad_id=ad_id)
+        data = json.loads(request.body)
+        if proposal.pwd == data.get('pwd'):
+            proposal.delete()
+            return JsonResponse({'message': f'id: {pk} 제안 삭제 완료'}, status=200)
+        else:
+            return JsonResponse({'message': '비밀번호가 일치하지 않습니다.'}, status=403)
+    return JsonResponse({'message': 'DELETE 요청만 허용됩니다.'}, status=400)
