@@ -2,8 +2,10 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from .models import Ad, Proposal
+from rest_framework.decorators import api_view
 
 # 게시물 작성
+@api_view(['POST'])
 def create_ad(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -22,6 +24,7 @@ def create_ad(request):
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
 
 # 특정 한 게시물 가져오기
+@api_view(['GET'])
 def get_ad(request, pk):
     ad = get_object_or_404(Ad, pk=pk)
     data = {
@@ -34,6 +37,7 @@ def get_ad(request, pk):
     return JsonResponse(data, status=200)
 
 # 게시물 전체 조회
+@api_view(['GET'])
 def get_all_ads(request):
     if request.method == 'GET':
         ads = Ad.objects.all()
@@ -50,6 +54,7 @@ def get_all_ads(request):
     return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
 
 # 검색어로 게시물 조회 (검색 기능)
+@api_view(['GET'])
 def search_ads(request):
     if request.method == 'GET':
         query = request.GET.get('q', '')
@@ -67,6 +72,7 @@ def search_ads(request):
     return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
 
 # 댓글 작성
+@api_view(['POST'])
 def create_proposal(request, ad_id):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -93,6 +99,7 @@ def create_proposal(request, ad_id):
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
 
 # 댓글 삭제
+@api_view(['DELETE'])
 def delete_proposal(request, ad_id, pk):
     if request.method == 'DELETE':
         proposal = get_object_or_404(Proposal, pk=pk, ad_id=ad_id)

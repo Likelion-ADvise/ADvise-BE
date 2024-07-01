@@ -1,6 +1,6 @@
 from django.db import models
 
-#게시물 model
+#게시물 model.
 class Ad(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
