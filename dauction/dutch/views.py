@@ -82,3 +82,19 @@ def get_all_ads(request):
         return JsonResponse(ads_data, safe=False)
     return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
 
+def search_ads(request):
+    if request.method == 'GET':
+        query = request.GET.get('q', '')
+        ads = Ad.objects.filter(title__icontains=query)
+        ads_data = [
+            {
+                'id': ad.id,
+                'title': ad.title,
+                'content': ad.content,
+                'minimum_price': ad.minimum_price
+            }
+            for ad in ads
+        ]
+        return JsonResponse(ads_data, safe=False)
+    return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
+
