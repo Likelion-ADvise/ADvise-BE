@@ -1,9 +1,7 @@
-from django.contrib import admin
 from django.urls import path
-
-from .views import create_ad
+from .views import create_ad, create_proposal
 
 urlpatterns = [
-    # 광고 게시물 생성
-    path('ads/', create_ad, name='create_ad')
+    path('ads/', create_ad, name='create_ad'),
+    path('ads/<int:ad_id>/', create_proposal, name='create_proposal'),
 ]
