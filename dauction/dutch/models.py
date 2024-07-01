@@ -1,6 +1,19 @@
 from django.db import models
 
-class Post(models.Model):
-    title = models.CharField(max_length=100) # 100글자가 최대인 문자열
-    content = models.TextField() # 글자 수 제한이 없는 긴 문자열
-    create_at = models.DateTimeField(auto_now_add=True) # 처음 Post 생성시, 현재시간 저장
+#게시물 model
+class Ad(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    minimum_price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+#댓글 model
+class Proposal(models.Model):
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE, related_name='proposals')
+    identifier = models.CharField(max_length=100)
+    pwd = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    url = models.URLField()
+    info = models.TextField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
