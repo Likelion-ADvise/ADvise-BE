@@ -83,7 +83,7 @@ def create_proposal(request, ad_id):
             ad=ad,
             identifier=identifier,
             pwd=pwd,
-            name=name,
+            title=title,
             url=url,
             info=info,
             price=price
