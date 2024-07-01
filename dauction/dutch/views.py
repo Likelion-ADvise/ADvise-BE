@@ -66,3 +66,19 @@ def delete_proposal(request, ad_id, pk):
         else:
             return JsonResponse({'message': '비밀번호가 일치하지 않습니다.'}, status=403)
     return JsonResponse({'message': 'DELETE 요청만 허용됩니다.'}, status=400)
+
+def get_all_ads(request):
+    if request.method == 'GET':
+        ads = Ad.objects.all()
+        ads_data = [
+            {
+                'id': ad.id,
+                'title': ad.title,
+                'content': ad.content,
+                'minimum_price': ad.minimum_price
+            }
+            for ad in ads
+        ]
+        return JsonResponse(ads_data, safe=False)
+    return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
+
