@@ -31,3 +31,4 @@ urlpatterns = [
     path('', get_all_ads, name='get_all_ads'),  # 초기 화면 설정
     path('ads/search/', search_ads, name='search_ads'),  # 제목 검색
 ]
+#
