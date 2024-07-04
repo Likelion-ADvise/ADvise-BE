@@ -99,6 +99,28 @@ def create_proposal(request, ad_id):
         return JsonResponse({'message': 'success'})
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
 
+# 댓글 가져오기
+
+# 광고의 모든 댓글 조회
+@api_view(['GET'])
+def get_all_proposals(request, ad_id):
+    if request.method == 'GET':
+        ad = get_object_or_404(Ad, id=ad_id)
+        proposals = Proposal.objects.filter(ad=ad)
+        proposals_data = [
+            {
+                'id': proposal.id,
+                'identifier': proposal.identifier,
+                'title': proposal.title,
+                'url': proposal.url,
+                'info': proposal.info,
+                'price': proposal.price,
+                'created_at': proposal.created_at
+            }
+            for proposal in proposals
+        ]
+        return JsonResponse(proposals_data, safe=False)
+    return JsonResponse({'message': 'GET 요청만 허용됩니다.'}, status=400)
 # 댓글 삭제
 @api_view(['DELETE'])
 def delete_proposal(request, ad_id, pk):
