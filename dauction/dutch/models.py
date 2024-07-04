@@ -6,7 +6,7 @@ class Ad(models.Model):
     content = models.TextField()
     minimum_price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    image = models.ImageField(upload_to='ads/', null=True, blank=True)  # 이미지 필드 추가
 #댓글 model
 class Proposal(models.Model):
     ad = models.ForeignKey(Ad, on_delete=models.CASCADE, related_name='proposals')
