@@ -1,0 +1,62 @@
+[
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사신발 광고 제안",
+            "content": "멋쟁이 사자처럼 본사 건물의 옥외 빌딩 광고를 제안합니다.",
+            "minimum_price": 100000,
+            "image": "ads/신발.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사 에스테틱 모델 광고 제안",
+            "content": "곧 런칭될 멋쟁이 사자처럼 브랜드 뷰티 파트의 모델 광고를 제안합니다.",
+            "minimum_price": 150000,
+            "image": "ads/화장품.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사자전거 제품 리뷰 광고 제안",
+            "content": "8월에 새로 출시할 멋사 자전거 리뷰를 해주실 모델분을 모집합니다.",
+            "minimum_price": 180000,
+            "image": "ads/자전거.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사 스토어_8월 런칭 예정 cf 광고 모델 제안",
+            "content": "이번에 새로 디자인된 상의, 하의를 리뷰해줄 출연진 (인플루언서, 관련 업계 종사 유튜버 등) 을 모집합니다.",
+            "minimum_price": 2210000,
+            "image": "asd/옷.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사 호텔 숙박 리뷰 공고",
+            "content": "저희 멋사 호텔에서 하루 숙박 후 리뷰를 해주실 인플루언서분을 모집합니다.",
+            "minimum_price": 3330000,
+            "image": "ads/호텔.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    },
+    {
+        "model": "dutch.ad",
+        "fields": {
+            "title": "멋사 레스토랑 음식 리뷰 공고",
+            "content": "이번에 새로 런칭된 신메뉴를 리뷰해주실 분을 모집합니다.",
+            "minimum_price": 115000,
+            "image": "ads/식당.jpg",
+            "created_at": "2024-07-04T00:00:00Z"
+        }
+    }
+]

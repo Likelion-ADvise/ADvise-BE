@@ -48,8 +48,8 @@ def get_all_ads(request):
                 'id': ad.id,
                 'title': ad.title,
                 'content': ad.content,
-                'minimum_price': ad.minimum_price
-                'image': ad.image
+                'minimum_price': ad.minimum_price,
+                'image': ad.image.url if ad.image else None
             }
             for ad in ads
         ]
@@ -67,7 +67,7 @@ def search_ads(request):
                 'id': ad.id,
                 'title': ad.title,
                 'content': ad.content,
-                'minimum_price': ad.minimum_price
+                'minimum_price': ad.minimum_price,
                 'image': ad.image
             }
             for ad in ads
