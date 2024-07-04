@@ -8,21 +8,22 @@ from rest_framework.decorators import api_view
 @api_view(['POST'])
 def create_ad(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-
+        data = json.loads(request.POST.get('data'))  # form-data에서 데이터를 가져옵니다.
+        
         title = data.get('title')
         content = data.get('content')
         minimum_price = data.get('minimum_price')
+        image = request.FILES.get('image')  # 파일 데이터를 가져옵니다.
 
         ad = Ad(
             title=title,
             content=content,
-            minimum_price=minimum_price
+            minimum_price=minimum_price,
+            image=image
         )
         ad.save()
         return JsonResponse({'message': 'success'})
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
-
 # 특정 한 게시물 가져오기
 @api_view(['GET'])
 def get_ad(request, pk):
