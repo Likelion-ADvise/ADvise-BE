@@ -33,7 +33,8 @@ def get_ad(request, pk):
         'title': ad.title,
         'content': ad.content,
         'minimum_price': ad.minimum_price,
-        'created_at': ad.created_at
+        'created_at': ad.created_at,
+        'image': ad.image
     }
     return JsonResponse(data, status=200)
 
@@ -48,6 +49,7 @@ def get_all_ads(request):
                 'title': ad.title,
                 'content': ad.content,
                 'minimum_price': ad.minimum_price
+                'image': ad.image
             }
             for ad in ads
         ]
@@ -66,6 +68,7 @@ def search_ads(request):
                 'title': ad.title,
                 'content': ad.content,
                 'minimum_price': ad.minimum_price
+                'image': ad.image
             }
             for ad in ads
         ]
