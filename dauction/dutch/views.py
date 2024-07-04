@@ -55,7 +55,7 @@ def get_all_ads(request):
         ]
         return JsonResponse(ads_data, safe=False)
     return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
-
+#
 # 검색어로 게시물 조회 (검색 기능)
 @api_view(['GET'])
 def search_ads(request):
