@@ -9,6 +9,7 @@ urlpatterns = [
     path('ads/search/', search_ads, name='search_ads'),  # 제목 검색
     path('ads/<int:pk>/', get_ad, name='get_ad'),  # 특정 게시물 조회
     path('ads/<int:ad_id>/proposals/', create_proposal, name='create_proposal'),  # 댓글 작성
-    path('ads/<int:ad_id>/proposals/all/', get_all_proposals, name='get_all_proposals'),
+    path('ads/<int:ad_id>/proposals/all/', get_all_proposals, name='get_all_proposals'), # 댓글 가져오기
     path('ads/<int:ad_id>/proposals/<int:pk>/delete/', delete_proposal, name='delete_proposal'),  # 댓글 삭제
 ]
+#
