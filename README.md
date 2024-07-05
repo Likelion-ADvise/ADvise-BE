@@ -36,7 +36,7 @@
 ## ✒️ API
 | 기능                  | method  | REST API                                                | 입력 data | 반환 data |
 |-----------------------|---------|---------------------------------------------------------|----------|-----------|
-| 전체 게시물 조회     | get     | https://advise.kro.kr/dutch/                         |
+| 전체 게시물 조회     | get     | https://advise.kro.kr/dutch/                         |      | 성공:200,ok\n 실패 : 500 |
 | 게시물 작성           | post    | https://advise.kro.kr/dutch/ads/                         |
 | 특정 광고 조회        | get     | https://advise.kro.kr/dutch/ads/<int:pk>/                |
 | 검색어 게시물 조회   | get     | https://advise.kro.kr/dutch/ads/search?q=검색어/         |
