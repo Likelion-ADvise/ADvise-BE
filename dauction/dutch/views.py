@@ -1,5 +1,5 @@
 import json
-from django.http import JsonResponse
+from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from .models import Ad, Proposal
 from rest_framework.decorators import api_view
@@ -22,8 +22,8 @@ def create_ad(request):
             image=image
         )
         ad.save()
-        return JsonResponse({'message': 'success'})
-    return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
+        return Response({'message': 'success'})
+    return Response({'message': 'POST 요청만 허용됩니다.'}, status=400)
 
 # 특정 한 게시물 가져오기
 @api_view(['GET'])
@@ -37,7 +37,7 @@ def get_ad(request, pk):
         'created_at': ad.created_at,
         'image_url': request.build_absolute_uri(ad.image.url) if ad.image else None
     }
-    return JsonResponse(data, status=200)
+    return Response(data, status=200)
 
 # 게시물 전체 조회
 @api_view(['GET'])
@@ -54,8 +54,8 @@ def get_all_ads(request):
             }
             for ad in ads
         ]
-        return JsonResponse(ads_data, safe=False)
-    return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
+        return Response(ads_data, safe=False)
+    return Response({'message': 'GET 요청만 허용됩니다.'})
 #
 # 검색어로 게시물 조회 (검색 기능)
 @api_view(['GET'])
@@ -73,8 +73,8 @@ def search_ads(request):
             }
             for ad in ads
         ]
-        return JsonResponse(ads_data, safe=False)
-    return JsonResponse({'message': 'GET 요청만 허용됩니다.'})
+        return Response(ads_data, safe=False)
+    return Response({'message': 'GET 요청만 허용됩니다.'})
 
 # 댓글 작성
 @api_view(['POST'])
@@ -100,8 +100,8 @@ def create_proposal(request, ad_id):
             price=price
         )
         proposal.save()
-        return JsonResponse({'message': 'success'})
-    return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
+        return Response({'message': 'success'})
+    return Response({'message': 'POST 요청만 허용됩니다.'}, status=400)
 
 # 댓글 가져오기
 
@@ -123,8 +123,8 @@ def get_all_proposals(request, ad_id):
             }
             for proposal in proposals
         ]
-        return JsonResponse(proposals_data, safe=False)
-    return JsonResponse({'message': 'GET 요청만 허용됩니다.'}, status=400)
+        return Response(proposals_data, safe=False)
+    return Response({'message': 'GET 요청만 허용됩니다.'}, status=400)
 # 댓글 삭제
 @api_view(['DELETE'])
 def delete_proposal(request, ad_id, pk):
@@ -133,7 +133,7 @@ def delete_proposal(request, ad_id, pk):
         data = json.loads(request.body)
         if proposal.pwd == data.get('pwd'):
             proposal.delete()
-            return JsonResponse({'message': f'id: {pk} 제안 삭제 완료'}, status=200)
+            return Response({'message': f'id: {pk} 제안 삭제 완료'}, status=200)
         else:
-            return JsonResponse({'message': '비밀번호가 일치하지 않습니다.'}, status=403)
-    return JsonResponse({'message': 'DELETE 요청만 허용됩니다.'}, status=400)
+            return Response({'message': '비밀번호가 일치하지 않습니다.'}, status=403)
+    return Response({'message': 'DELETE 요청만 허용됩니다.'}, status=400)
