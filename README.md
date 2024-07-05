@@ -34,15 +34,15 @@
   * 비밀번호를 입력하여 자신이 작성한 댓글을 삭제할 수 있다.
 
 ## ✒️ API
-| 기능                  | method  | REST API                                                                 | 입력 data                 | 반환 data |
-|-----------------------|---------|--------------------------------------------------------------------------|---------------------------|-----------------------|
-| 전체 게시물 조회     | get     | https://advise.kro.kr/dutch/                         |      | 성공:200,ok 실패 : 500 |
-| 게시물 작성           | post    | https://advise.kro.kr/dutch/ads/                         | {“title”:varchar(100),“content”:text,“minimum_price”:int,“image”:image}| 성공:200 ok, 실패 : 400 |
-| 특정 광고 조회        | get     | https://advise.kro.kr/dutch/ads/<int:pk>/                | | 성공 : 200, ok 실패 : 404 |
-| 검색어 게시물 조회   | get     | https://advise.kro.kr/dutch/ads/search?q=검색어/         | | 성공 : 200, ok 실패 : 500 |
-| 댓글 작성            | post    | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/   | {“identifier”:varchar(100),“pwd”:varchar(100),“title”:varchar(100),“url”:url,“info”:text,“price”:int} | 성공 : 200, ok 실패 : 400 |
-| 모든 댓글 조회            | get     | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/all/| | 성공 : 200, 실패 : 404|
-| 댓글 삭제            | delete  | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/<intpk>/delete/ | {“id”:<int:ad_id>,“identifier”:varchar(100),“pwd”:varchar(100),“title”:varchar(100),“url”:url,“info”:text,“price”:int}| 성공 : 200, ok 실패 : 400, 403 (일치 오류) |
+| 기능                        | method  | REST API                                                                 | 입력 data                 | 반환 data |
+|-----------------------------|---------|--------------------------------------------------------------------------|---------------------------|-----------------------|
+| 전체 게시물 조회             | get     | https://advise.kro.kr/dutch/                                             |          | 성공:200,ok 실패 : 500 |
+| 게시물 작성                  | post    | https://advise.kro.kr/dutch/ads/                                         | {“title”:varchar(100),“content”:text,“minimum_price”:int,“image”:image}| 성공:200 ok, 실패 : 400 |
+| 특정 광고 조회               | get     | https://advise.kro.kr/dutch/ads/<int:pk>/                                |         | 성공 : 200, ok 실패 : 404 |
+| 검색어 게시물 조회           | get     | https://advise.kro.kr/dutch/ads/search?q=검색어/                         |          | 성공 : 200, ok 실패 : 500 |
+| 댓글 작성                   | post    | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/                     |{“identifier”:varchar(100),“pwd”:varchar(100),“title”:varchar(100),“url”:url,“info”:text,“price”:int} | 성공 : 200, ok 실패 : 400 |
+| 모든 댓글 조회              | get     | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/all/                 |         | 성공 : 200, 실패 : 404|
+| 댓글 삭제                   | delete  | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/<intpk>/delete/      |{“id”:<int:ad_id>,“identifier”:varchar(100),“pwd”:varchar(100),“title”:varchar(100),“url”:url,“info”:text,“price”:int}| 성공 : 200, ok 실패 : 400, 403 (일치 오류) |
 
 
 ## ERD CLOUD
