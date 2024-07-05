@@ -61,7 +61,8 @@
   * 광고 게시물에 작성한 인플루언서의 댓글을 삭제한다.
     ![image](https://github.com/Likelion-ADvise/ADvise-BE/assets/149250433/a26ec9ed-490d-4b91-9abc-e71b5c25408a)
     delete 요청을 통해 삭제하고자 하는 광고게시물의 id 과 해당 댓글의 id를 확인 후 일치하는 댓글의 data를 불러온다.
-    이후 일치한 댓글의 data와 delete 요청에서 전송한 data 값이 일치할 시 
+    이후 일치한 댓글의 data와 delete 요청에서 전송한 data 값이 일치할 시 해당 댓글의 삭제가 가능하다.
+    만약 delete 요청에서 전송한 data의 pwd 값과 댓글의 pwd 가 일치하지 않을 시 403 에러를 띄우고, 삭제가 완료될 시 200 코드와 'id: {pk} 제안 삭제 완료' 를 띄운다.
 
 
 ## ✒️ API
