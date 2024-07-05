@@ -1,3 +1,4 @@
+
 # 멋쟁이 사자처럼 해커톤
 멋쟁이 사자처럼 해커톤에서 사용한 서버코드입니다. Django를 사용하여 구현하였습니다.
 
@@ -42,4 +43,7 @@
 | 댓글 작성            | post    | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/   |
 | 댓글 조회            | get     | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/all/|
 | 댓글 삭제            | delete  | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/<intpk>/delete/ |
+
+## ERD CLOUD
+![image](https://github.com/Likelion-ADvise/ADvise-BE/assets/131441769/d1386430-c0b6-4c6c-8b8c-c211da8c323f)
 
