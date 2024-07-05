@@ -33,3 +33,13 @@
   * 비밀번호를 입력하여 자신이 작성한 댓글을 삭제할 수 있다.
 
 ## ✒️ API
+| 기능                  | 메서드  | REST API                                                |
+|-----------------------|---------|---------------------------------------------------------|
+| 전체 게시물 조회     | get     | https://advise.kro.kr/dutch/ads                         |
+| 게시물 작성           | post    | https://advise.kro.kr/dutch/ads                         |
+| 특정 광고 조회        | get     | https://advise.kro.kr/dutch/ads/<int:pk>                |
+| 검색어 게시물 조회   | get     | https://advise.kro.kr/dutch/ads/search?q=검색어         |
+| 댓글 작성            | post    | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/   |
+| 댓글 조회            | get     | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/all|
+| 댓글 삭제            | delete  | https://advise.kro.kr/dutch/ads/<intad_id>/proposals/<intpk>/delete |
+
