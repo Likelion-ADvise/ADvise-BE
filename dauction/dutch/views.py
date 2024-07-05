@@ -54,7 +54,7 @@ def get_all_ads(request):
             }
             for ad in ads
         ]
-        return Response(ads_data, safe=False)
+        return Response(ads_data)
     return Response({'message': 'GET 요청만 허용됩니다.'})
 #
 # 검색어로 게시물 조회 (검색 기능)
@@ -73,7 +73,7 @@ def search_ads(request):
             }
             for ad in ads
         ]
-        return Response(ads_data, safe=False)
+        return Response(ads_data)
     return Response({'message': 'GET 요청만 허용됩니다.'})
 
 # 댓글 작성
@@ -123,9 +123,10 @@ def get_all_proposals(request, ad_id):
             }
             for proposal in proposals
         ]
-        return Response(proposals_data, safe=False)
+        return Response(proposals_data)
     return Response({'message': 'GET 요청만 허용됩니다.'}, status=400)
 # 댓글 삭제
+
 @api_view(['DELETE'])
 def delete_proposal(request, ad_id, pk):
     if request.method == 'DELETE':
