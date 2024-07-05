@@ -24,6 +24,7 @@ def create_ad(request):
         ad.save()
         return JsonResponse({'message': 'success'})
     return JsonResponse({'message': 'POST 요청만 허용됩니다.'}, status=400)
+
 # 특정 한 게시물 가져오기
 @api_view(['GET'])
 def get_ad(request, pk):
@@ -34,7 +35,7 @@ def get_ad(request, pk):
         'content': ad.content,
         'minimum_price': ad.minimum_price,
         'created_at': ad.created_at,
-        'image': ad.image
+        'image_url': request.build_absolute_uri(ad.image.url) if ad.image else None
     }
     return JsonResponse(data, status=200)
 
