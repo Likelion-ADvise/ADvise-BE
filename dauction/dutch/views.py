@@ -50,7 +50,7 @@ def get_all_ads(request):
                 'title': ad.title,
                 'content': ad.content,
                 'minimum_price': ad.minimum_price,
-                'image': ad.image.url if ad.image else None
+                'image_url': request.build_absolute_uri(ad.image.url) if ad.image else None
             }
             for ad in ads
         ]
